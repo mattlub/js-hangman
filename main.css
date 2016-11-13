@@ -1,0 +1,27 @@
+body {
+	
+}
+
+#hangman {
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+}
+
+.top-display {
+	border: 1px solid black;
+	width: 90%;
+	margin: 10px auto;
+}
+
+.top-display * {
+	display: block;
+	font-size: 2em;
+}
+
+.buttons-section {
+	border: 1px solid black;
+	width: 90%;
+	margin: 10px auto;
+}
+
