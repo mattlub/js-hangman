@@ -10,9 +10,9 @@ I wanted to practise using vanilla js to make AJAX requests and also to create a
 -------------------
 - major stylisation
 - add actual hangman animation
-- actually make API functional
+- actually make API functional/ add a few random words to select between if API doesn't work
 - add link to word definition if you lose
-- add reset function which empties all contents of div
+- add reset function which empties all contents of div (DONE: 14/11/16)
 - add options variable to initialisation of the app, including e.g. word length and starting lives.
 
 ##### Collaboration

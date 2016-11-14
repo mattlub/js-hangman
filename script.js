@@ -1,8 +1,8 @@
-var HangmanApp = function(elem) {
+var Hangman = function(elem) {
 
 	var alphabet = "abcdefghijklmnopqrstuvwxyz",
 		request,
-		word = "testosterone",
+		word = "smoothie",
 		word_length,
 		letters_guessed = [],
 		
@@ -54,12 +54,20 @@ var HangmanApp = function(elem) {
 
 	// PROCESS FUNCTIONS
 	
+	function reset () {
+		while(elem.lastChild) {
+			elem.removeChild(elem.firstChild);
+		}
+	};
+	
 	var getWord = function () {
 		request = new XMLHttpRequest;
 		request.open('GET', 'https://crossorigin.me/http://randomword.setgetgo.com/get.php');
 		request.onload = function() {
 			if (request.status == 200){		
-				word = request.response;
+				word = request.response.toLowerCase();
+				loadInitialDOM();
+				render();	
 			}
 			// ...else
 		};
@@ -72,7 +80,7 @@ var HangmanApp = function(elem) {
 	function loadInitialDOM() {    
 		elem.appendChild(top_display);
 		elem.appendChild(buttons_section);
-	}
+	};
 
 	function render() {
 		renderDisplayedWord();
@@ -105,7 +113,7 @@ var HangmanApp = function(elem) {
 		if (lives_left <= 0) {
 			game_complete = "Bad luck, you lose! The correct word was " + word;
 		}
-	}
+	};
 
 	function renderButtons(game_over) {
 		for (var i = 0; i < 26; i++) {
@@ -127,24 +135,23 @@ var HangmanApp = function(elem) {
 			lives_left -= 1;
 		}
 		render();
-	}
+	};
 
-	// START GAME (was previous abstracted into startGame() function)
+	// START GAME
+	// getWord() calls loadInitialDOM() and render() if request is successful
 	
-	// getWord();
-	loadInitialDOM();
-	render();	
+	reset();
+	getWord();
 
 };
 
-
 document.addEventListener('DOMContentLoaded', function() {
 
-	var begin_button = document.getElementById("begin-button")
+	var new_game_button = document.getElementById("new-game-button")
 		hangman_div = document.getElementById("hangman");
 		
-	begin_button.addEventListener("click", function() {
-		new HangmanApp(hangman_div);
+	new_game_button.addEventListener("click", function() {
+		new Hangman(hangman_div);
 	});
 });
 

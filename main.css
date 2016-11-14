@@ -1,6 +1,5 @@
 body {
-	text-align:center;
-	
+	text-align:center;	
 }
 
 .container {
@@ -25,15 +24,15 @@ body {
 
 .displayed-word {
 	font-size: 1em;
+	margin: 5px 0px;
 }
 
 .lives-left {
-	
 }
 
 .message {
+	margin: 5px 0px;
 }
-
 
 .buttons-section {
 	border: 1px solid black;
