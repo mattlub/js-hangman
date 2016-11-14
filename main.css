@@ -1,5 +1,5 @@
 body {
-	
+	font-family: "Helvetica";
 }
 
 #hangman {
@@ -14,14 +14,25 @@ body {
 	margin: 10px auto;
 }
 
-.top-display * {
-	display: block;
-	font-size: 2em;
+.displayed-word {
+	font-size: 1em;
 }
+
+.lives-left {
+}
+
+.message {
+}
+
 
 .buttons-section {
 	border: 1px solid black;
 	width: 90%;
 	margin: 10px auto;
+}
+
+.letter-button {
+	width: 15%;
+	margin: 1px;
 }
 
